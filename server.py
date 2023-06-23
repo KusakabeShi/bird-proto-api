@@ -65,7 +65,7 @@ def get_bird_session(n="*",birdc_output = None):
         proto_name, proto_type, proto_table ,proto_state , proto_since ,proto_info = protoinfo[0] , protoinfo[1], protoinfo[2], protoinfo[3], protoinfo[4], protoinfo[-1]
         if proto_type != "BGP":
             continue
-        result = {"name": proto_name, "state":None, "as": {"local":0, "remote":0}, "addr":{"af": 0, "local":None, "remote":None, "interface":None}, "route":{"ipv4":{"imported":0,"exported":0,"preferred":0},"ipv6":{"imported":0,"exported":0,"preferred":0}}}
+        result = {"name": proto_name, "state":None, "as": {"local":0, "remote":0}, "addr":{"af": 0, "local":None, "remote":None, "interface":None}, "route":{"ipv4":{"imported":0,"filtered":0,"exported":0,"preferred":0},"ipv6":{"imported":0,"filtered":0,"exported":0,"preferred":0}}}
         current_channel = ""
         for L in proto_str_line:
             if "BGP state:" in L:
